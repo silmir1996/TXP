@@ -107,7 +107,7 @@ Then ('I will be able to search for event titles', () =>{
 
 
 
-
+// Código de proyecto de Recarga Claro
 
 // beforeEach(() => {
 //     cy.visit("/").wait(2000) 
