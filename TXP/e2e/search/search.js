@@ -1,12 +1,9 @@
- import {Given, When, Then, And, Background} from '@badeball/cypress-cucumber-preprocessor';
+ import {Given, When, Then, And} from '@badeball/cypress-cucumber-preprocessor';
  import '@testing-library/cypress/add-commands';
-//  import "cypress-localstorage-commands";
-//  import 'cypress-v10-preserve-cookie';
-//  import 'cypress-data-session';
 
 
 beforeEach(() => {
-    cy.visit("/")
+    cy.visit("/").wait(2000) 
 });
 
 // afterEach (() => {
@@ -14,12 +11,52 @@ beforeEach(() => {
 //     cy.log('Cookies guardadas')
 // });
 
+// Scenario: Search - Search for existing events
 
 When ('I click on search input box', () => {
-    cy.visit("/");
-    // cy.get('#kc-login').click();
-
+    cy.get('.css-9op6zc').click().wait(2000)
 });
+
+When ('I type a title of an existing event', () => {
+    cy.get('.css-nbt25o').should('include.text', 'Jam').wait(3000);
+    cy.get('[placeholder="Search by title"]').type('jam').wait(3000)
+});
+
+Then ('I will see the feed returning an existing event', () => {
+    cy.get('.css-nbt25o').should('include.text', 'Jam').wait(3000)
+});
+
+// Scenario: Search - Search for non-existing events
+
+// When ('I click on search input box', () => {
+//     cy.get('.css-9op6zc').click().wait(2000)
+// });
+
+When ('I type a title of an non-existing event', () => {
+    cy.get('.css-nbt25o').should('not.include.text', 'text').wait(3000);
+    cy.get('[placeholder="Search by title"]').type('text').wait(3000)
+});
+
+Then ('I will see the feed empty state', () => {
+    cy.findByText('There are no upcoming events et the moment').should('exist').wait(3000);       
+    cy.get('svg[viewBox="0 0 64 64"]').wait(3000)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // When ('A user enter the username {string} and the password {string}', (username,password) =>{
 //     cy.get('#username') .type(username);

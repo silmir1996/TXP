@@ -14,14 +14,14 @@ module.exports = defineConfig({
     "cucumberautocomplete.strictGherkinCompletion": true,
     "include": ["node_modules/cypress", "./cypress/**/*.js"],
     'supportFile': false,
+    'viewportHeight': 900,
+    'viewportWidth': 1440,
     
     async setupNodeEvents(on, config) {
       require('cypress-data-session/src/plugin')(on, config);
       const bundler = createBundler({
         plugins: [createEsbuildPlugin(config)],
       });
-
-      require("cypress-localstorage-commands/plugin")(on, config);
 
       on('file:preprocessor', bundler);
       await addCucumberPreprocessorPlugin(on, config);

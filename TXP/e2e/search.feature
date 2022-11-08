@@ -7,10 +7,10 @@ Feature: Search
     #     When I login with "valid" Username and Password
     #     And I travel to events Page
 
-    Scenario: Search - Search for existing events
-        When I click on search input box
-        When I type a title of an existing event
-        Then I will see the feed returning an existing event
+    # Scenario: Search - Search for existing events
+    #     When I click on search input box
+    #     When I type a title of an existing event
+    #     Then I will see the feed returning an existing event
 
     Scenario: Search - Search for non-existing events
         When I click on search input box
