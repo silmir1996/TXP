@@ -6,18 +6,12 @@
 
 
 beforeEach (() => {
-    cy.preserveCookieOnce('session_2' , 'session', 'JSESSIONID', 'b34b515f92ad5491be31f2bd57e9fba7', 'test', 'cookie');
-    cy.log('Cookies recuperadas');
-    cy.wait(2000)
+    cy.visit("/")
 });
 
 afterEach (() => {
     cy.preserveCookieOnce('session_2' , 'session', 'JSESSIONID', 'b34b515f92ad5491be31f2bd57e9fba7', 'test', 'cookie');
     cy.log('Cookies guardadas')
-});
-
-Given ('A user opens the login page', () => {
-    cy.visit("/")
 });
 
 When ('A user enter the username {string} and the password {string}', (username,password) =>{
