@@ -1,17 +1,14 @@
- import {Given, When, Then, And} from '@badeball/cypress-cucumber-preprocessor';
+ import {Given, When, Then, Background, And} from '@badeball/cypress-cucumber-preprocessor';
  import '@testing-library/cypress/add-commands';
  import { slowCypressDown } from 'cypress-slow-down'
 
-slowCypressDown(650)
+slowCypressDown(100)
 
-beforeEach(() => {
+// // // // // // // // // // // // // Background
+
+Given ('I visit The X Place app Page and travel to events Page', ()=> {
     cy.visit("/").wait(2000) 
 });
-
-// afterEach (() => {
-//     cy.preserveCookieOnce('session_2' , 'session', 'JSESSIONID', 'b34b515f92ad5491be31f2bd57e9fba7', 'test', 'cookie');
-//     cy.log('Cookies guardadas')
-// });
 
 // // // // // // // // // // // // // Scenario: Search - Search for existing events
 
@@ -21,7 +18,7 @@ When ('I click on search input box', () => {
 
 When ('I type a title of an existing event', () => {
     cy.get('.css-nbt25o').should('include.text', 'Jam');
-    cy.get('[placeholder="Search by title"]').type('jam')
+    cy.get('[placeholder="Search by title"]').type('jam').should('have.value','jam')
 });
 
 Then ('I will see the feed returning an existing event', () => {
@@ -36,7 +33,7 @@ Then ('I will see the feed returning an existing event', () => {
 
 When ('I type a title of an non-existing event', () => {
     cy.get('.css-nbt25o').should('not.include.text', 'text');
-    cy.get('[placeholder="Search by title"]').type('text')
+    cy.get('[placeholder="Search by title"]').type('text').should('have.value','text')
 });
 
 Then ('I will see the feed empty state', () => {
@@ -52,7 +49,7 @@ Then ('I will see the feed empty state', () => {
 
 When ('I type an event title', () => {
     cy.get('.css-nbt25o').should('include.text','Jam').should('include.text','Titulo');
-    cy.get('[placeholder="Search by title"]').type('jam');
+    cy.get('[placeholder="Search by title"]').type('jam').should('have.value','jam');
     cy.get('.css-nbt25o').should('include.text','Jam').should('not.include.text','Titulo')
 });
 
@@ -62,10 +59,8 @@ When ('I click on the Cross Icon inside the Input',() =>{
 
 Then ('Input content will be wiped and it will return all events', () => {
     cy.get('[placeholder="Search by title"]').should('be.empty');
-    cy.get('.css-nbt25o').should('include.text','Jam').should('include.text','Titulo')
+    cy.get('.css-nbt25o').should('include.text','Jam').and('include.text','Titulo')
 });
-
-
 
 // // // // // // // // // // // Scenario: Search - Wipe Input manually
 
@@ -114,7 +109,14 @@ Then ('I will be able to search for event titles', () =>{
 
 
 
+// beforeEach(() => {
+//     cy.visit("/").wait(2000) 
+// });
 
+// afterEach (() => {
+//     cy.preserveCookieOnce('session_2' , 'session', 'JSESSIONID', 'b34b515f92ad5491be31f2bd57e9fba7', 'test', 'cookie');
+//     cy.log('Cookies guardadas')
+// });
 
 
 // When ('A user enter the username {string} and the password {string}', (username,password) =>{

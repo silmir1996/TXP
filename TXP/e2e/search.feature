@@ -2,10 +2,8 @@ Feature: Search
     
     As a user I'm able to search for events
 
-    # Background: 
-    #     Given I visit The X Place app Page
-    #     When I login with "valid" Username and Password
-    #     And I travel to events Page
+    Background: 
+        Given I visit The X Place app Page and travel to events Page
 
     Scenario: Search - Search for existing events
         When I click on search input box
