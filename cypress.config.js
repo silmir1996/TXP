@@ -11,6 +11,8 @@ module.exports = defineConfig({
     chromeWebSecurity: false,
     experimentalSessionAndOrigin : true,
     'chromeWebSecurity': false,
+    'video':true,
+    'screenshotsFolder': 'cypress/videos',
     "defaultCommandTimeout": 5000,
     "cucumberautocomplete.strictGherkinCompletion": true,
     "include": ["node_modules/cypress", "./cypress/**/*.js"],

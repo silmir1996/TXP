@@ -4,7 +4,8 @@
   "description": "test",
   "main": "index.js",
   "scripts": {
-    "txp": "cypress open --e2e --browser chrome"
+    "txp": "cypress open --e2e --browser chrome",
+    "txpHeadless" : "cypress run --e2e --browser chrome"
   },
   "author": "me",
   "license": "ISC",

@@ -2,7 +2,7 @@
  import '@testing-library/cypress/add-commands';
  import { slowCypressDown } from 'cypress-slow-down'
 
-slowCypressDown(600)
+slowCypressDown(650)
 
 beforeEach(() => {
     cy.visit("/").wait(2000) 
