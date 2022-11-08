@@ -1,11 +1,14 @@
  import {Given, When, Then, And, Background} from '@badeball/cypress-cucumber-preprocessor';
+ import {before, after, beforeEach, afterEach} from '@badeball/cypress-cucumber-preprocessor';
+ import {before, after, beforeEach, afterEach} from '@bahmutov/cypress-esbuild-preprocessor';
+
  import '@testing-library/cypress/add-commands';
  import "cypress-localstorage-commands";
  import 'cypress-v10-preserve-cookie';
  import 'cypress-data-session';
 
 
-beforeEach (() => {
+beforeEach(() => {
     cy.visit("/")
 });
 
