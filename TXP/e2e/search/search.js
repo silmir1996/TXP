@@ -88,7 +88,20 @@ When ('I wipe the Input manually', () => {
 //     cy.get('.css-nbt25o').should('include.text','Jam').should('include.text','Titulo');
 // });
 
-// // // // // // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // //  Scenario: Search - Character Validation
+
+// When ('I click on search input box', () => {
+//     cy.get('.css-9op6zc').click()
+// });
+
+When ('I type alphanumeric characters, special characters and spaces', () =>{
+    cy.get('[placeholder="Search by title"]').type('ASD 123 !"·$%&/()=')
+});
+
+Then ('I will be able to search for event titles', () =>{
+    cy.get('[placeholder="Search by title"]').should('have.value','ASD 123 !"·$%&/()=')
+});
+
 
 
 

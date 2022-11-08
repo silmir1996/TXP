@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "txp": "cypress open --e2e --browser chrome",
-    "txpHeadless" : "cypress run --e2e --browser chrome"
+    "txpH" : "cypress run --e2e --browser chrome"
   },
   "author": "me",
   "license": "ISC",
