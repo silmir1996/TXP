@@ -2,8 +2,7 @@
  import '@testing-library/cypress/add-commands';
  import { slowCypressDown } from 'cypress-slow-down'
 
- slowCypressDown(600)
-
+slowCypressDown(600)
 
 beforeEach(() => {
     cy.visit("/").wait(2000) 
@@ -14,7 +13,7 @@ beforeEach(() => {
 //     cy.log('Cookies guardadas')
 // });
 
-// Scenario: Search - Search for existing events
+// // // // // // // // // // // // // Scenario: Search - Search for existing events
 
 When ('I click on search input box', () => {
     cy.get('.css-9op6zc').click()
@@ -29,7 +28,7 @@ Then ('I will see the feed returning an existing event', () => {
     cy.get('.css-nbt25o').should('include.text', 'Jam')
 });
 
-// Scenario: Search - Search for non-existing events
+// // // // // // // // // // // // // Scenario: Search - Search for non-existing events
 
 // When ('I click on search input box', () => {
 //     cy.get('.css-9op6zc').click()
@@ -45,7 +44,7 @@ Then ('I will see the feed empty state', () => {
     cy.get('svg[viewBox="0 0 64 64"]')
 });
 
-// Scenario: Search - Wipe Input 
+// // // // // // // // // // // // Scenario: Search - Wipe Input 
 
 // When ('I click on search input box', () => {
 //     cy.get('.css-9op6zc').click()
@@ -68,7 +67,7 @@ Then ('Input content will be wiped and it will return all events', () => {
 
 
 
-//     Scenario: Search - Wipe Input manually
+// // // // // // // // // // // Scenario: Search - Wipe Input manually
 
 // When ('I click on search input box', () => {
 //     cy.get('.css-9op6zc').click()
@@ -89,6 +88,7 @@ When ('I wipe the Input manually', () => {
 //     cy.get('.css-nbt25o').should('include.text','Jam').should('include.text','Titulo');
 // });
 
+// // // // // // // // // // // // // // // // // // // // // // // // // //
 
 
 
