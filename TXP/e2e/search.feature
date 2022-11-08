@@ -3,7 +3,7 @@ Feature: Search
     As a user I'm able to search for events
 
     Background: 
-        Given I visit The X Place app Page and travel to events Page
+        Given I visit The X Place and travel to events Page
 
     Scenario: Search - Search for existing events
         When I click on search input box

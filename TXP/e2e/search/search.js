@@ -6,7 +6,7 @@ slowCypressDown(100)
 
 // // // // // // // // // // // // // Background
 
-Given ('I visit The X Place app Page and travel to events Page', ()=> {
+Given ('I visit The X Place and travel to events Page', ()=> {
     cy.visit("/").wait(2000) 
 });
 
