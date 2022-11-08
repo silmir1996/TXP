@@ -1,5 +1,8 @@
  import {Given, When, Then, And} from '@badeball/cypress-cucumber-preprocessor';
  import '@testing-library/cypress/add-commands';
+ import { slowCypressDown } from 'cypress-slow-down'
+
+ slowCypressDown(600)
 
 
 beforeEach(() => {
@@ -79,7 +82,7 @@ Then ('Input content will be wiped and it will return all events', () => {
 
 When ('I wipe the Input manually', () => {
     cy.get('[placeholder="Search by title"]').clear()
-})
+});
 
 // Then ('Input content will be wiped and it will return all events', () => {
 //     cy.get('[placeholder="Search by title"]').should('be.empty')

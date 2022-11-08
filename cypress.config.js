@@ -11,6 +11,7 @@ module.exports = defineConfig({
     chromeWebSecurity: false,
     experimentalSessionAndOrigin : true,
     'chromeWebSecurity': false,
+    "defaultCommandTimeout": 5000,
     "cucumberautocomplete.strictGherkinCompletion": true,
     "include": ["node_modules/cypress", "./cypress/**/*.js"],
     'supportFile': false,
@@ -18,7 +19,7 @@ module.exports = defineConfig({
     'viewportWidth': 1440,
     
     async setupNodeEvents(on, config) {
-      require('cypress-data-session/src/plugin')(on, config);
+      // require('cypress-data-session/src/plugin')(on, config);
       const bundler = createBundler({
         plugins: [createEsbuildPlugin(config)],
       });
