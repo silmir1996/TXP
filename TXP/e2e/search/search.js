@@ -14,34 +14,77 @@ beforeEach(() => {
 // Scenario: Search - Search for existing events
 
 When ('I click on search input box', () => {
-    cy.get('.css-9op6zc').click().wait(2000)
+    cy.get('.css-9op6zc').click()
 });
 
 When ('I type a title of an existing event', () => {
-    cy.get('.css-nbt25o').should('include.text', 'Jam').wait(3000);
-    cy.get('[placeholder="Search by title"]').type('jam').wait(3000)
+    cy.get('.css-nbt25o').should('include.text', 'Jam');
+    cy.get('[placeholder="Search by title"]').type('jam')
 });
 
 Then ('I will see the feed returning an existing event', () => {
-    cy.get('.css-nbt25o').should('include.text', 'Jam').wait(3000)
+    cy.get('.css-nbt25o').should('include.text', 'Jam')
 });
 
 // Scenario: Search - Search for non-existing events
 
 // When ('I click on search input box', () => {
-//     cy.get('.css-9op6zc').click().wait(2000)
+//     cy.get('.css-9op6zc').click()
 // });
 
 When ('I type a title of an non-existing event', () => {
-    cy.get('.css-nbt25o').should('not.include.text', 'text').wait(3000);
-    cy.get('[placeholder="Search by title"]').type('text').wait(3000)
+    cy.get('.css-nbt25o').should('not.include.text', 'text');
+    cy.get('[placeholder="Search by title"]').type('text')
 });
 
 Then ('I will see the feed empty state', () => {
-    cy.findByText('There are no upcoming events et the moment').should('exist').wait(3000);       
-    cy.get('svg[viewBox="0 0 64 64"]').wait(3000)
+    cy.findByText('There are no upcoming events et the moment').should('exist');       
+    cy.get('svg[viewBox="0 0 64 64"]')
+});
+
+// Scenario: Search - Wipe Input 
+
+// When ('I click on search input box', () => {
+//     cy.get('.css-9op6zc').click()
+// });
+
+When ('I type an event title', () => {
+    cy.get('.css-nbt25o').should('include.text','Jam').should('include.text','Titulo');
+    cy.get('[placeholder="Search by title"]').type('jam');
+    cy.get('.css-nbt25o').should('include.text','Jam').should('not.include.text','Titulo')
+});
+
+When ('I click on the Cross Icon inside the Input',() =>{
+    cy.get ('.css-6310fa').click()
+});
+
+Then ('Input content will be wiped and it will return all events', () => {
+    cy.get('[placeholder="Search by title"]').should('be.empty');
+    cy.get('.css-nbt25o').should('include.text','Jam').should('include.text','Titulo')
+});
+
+
+
+//     Scenario: Search - Wipe Input manually
+
+// When ('I click on search input box', () => {
+//     cy.get('.css-9op6zc').click()
+// });
+
+// When ('I type an event title', () => {
+//     cy.get('.css-nbt25o').should('include.text','Jam').should('include.text','Titulo');
+//     cy.get('[placeholder="Search by title"]').type('jam');
+//     cy.get('.css-nbt25o').should('include.text','Jam').should('not.include.text','Titulo')
+// });
+
+When ('I wipe the Input manually', () => {
+    cy.get('[placeholder="Search by title"]').clear()
 })
 
+// Then ('Input content will be wiped and it will return all events', () => {
+//     cy.get('[placeholder="Search by title"]').should('be.empty')
+//     cy.get('.css-nbt25o').should('include.text','Jam').should('include.text','Titulo');
+// });
 
 
 
