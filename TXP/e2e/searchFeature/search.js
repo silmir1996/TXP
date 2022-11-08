@@ -4,14 +4,6 @@
  import 'cypress-v10-preserve-cookie';
  import 'cypress-data-session';
 
-//Scenario: Login
-// before ('successfully logs in via GUI',() => {
-//     // cy.intercept('GET', `${Cypress.env('apiUrl')}/models?userId=*`)
-//     //       .as('getUserModels')
-//     cy.loginViaAPI()
-//     // cy.wait('@getUserModels')
-//     // cy.url().should('contain', 'https://qa.claropay.com.ar/Inicio')
-// });
 
 beforeEach (() => {
     cy.preserveCookieOnce('session_2' , 'session', 'JSESSIONID', 'b34b515f92ad5491be31f2bd57e9fba7', 'test', 'cookie');

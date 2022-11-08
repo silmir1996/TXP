@@ -8,7 +8,7 @@ const createEsbuildPlugin =
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: 'https://qa.claropay.com.ar/ingresar',
+    baseUrl: 'https://integration.app2.thexplace.ai/community/events',
     chromeWebSecurity: false,
     experimentalSessionAndOrigin : true,
     'chromeWebSecurity': false,
