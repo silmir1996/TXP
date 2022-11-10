@@ -2,7 +2,7 @@
  import '@testing-library/cypress/add-commands';
  import { slowCypressDown } from 'cypress-slow-down'
 
-slowCypressDown(100)
+slowCypressDown(0)
 
 // // // // // // // // // // // // // Background
 
@@ -37,7 +37,7 @@ When ('I type a title of an non-existing event', () => {
 });
 
 Then ('I will see the feed empty state', () => {
-    cy.findByText('There are no upcoming events et the moment').should('exist');       
+    cy.findByText('There are no upcoming events at the moment').should('exist');       
     cy.get('svg[viewBox="0 0 64 64"]')
 });
 
@@ -48,18 +48,18 @@ Then ('I will see the feed empty state', () => {
 // });
 
 When ('I type an event title', () => {
-    cy.get('.css-nbt25o').should('include.text','Jam').should('include.text','Titulo');
+    cy.get('.css-nbt25o').should('include.text','Jam').should('include.text','title');
     cy.get('[placeholder="Search by title"]').type('jam').should('have.value','jam');
-    cy.get('.css-nbt25o').should('include.text','Jam').should('not.include.text','Titulo')
+    cy.get('.css-nbt25o').should('include.text','Jam').should('not.include.text','title')
 });
 
 When ('I click on the Cross Icon inside the Input',() =>{
-    cy.get ('.css-6310fa').click()
+    cy.get('.css-1t4681n').click()
 });
 
 Then ('Input content will be wiped and it will return all events', () => {
     cy.get('[placeholder="Search by title"]').should('be.empty');
-    cy.get('.css-nbt25o').should('include.text','Jam').and('include.text','Titulo')
+    cy.get('.css-nbt25o').should('include.text','Jam').and('include.text','title')
 });
 
 // // // // // // // // // // // Scenario: Search - Wipe Input manually
