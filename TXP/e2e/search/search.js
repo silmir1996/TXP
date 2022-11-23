@@ -17,12 +17,12 @@ When ('I click on search input box', () => {
 });
 
 When ('I type a title of an existing event', () => {
-    cy.get('.css-nbt25o').should('include.text', 'Jam');
-    cy.get('[placeholder="Search by title"]').type('jam').should('have.value','jam')
+    cy.get('.css-nbt25o').should('include.text', 'E3 2023');
+    cy.get('[placeholder="Search by title"]').type('E3 2023').should('have.value','E3 2023')
 });
 
 Then ('I will see the feed returning an existing event', () => {
-    cy.get('.css-nbt25o').should('include.text', 'Jam')
+    cy.get('.css-nbt25o').should('include.text', 'E3 2023')
 });
 
 // // // // // // // // // // // // // Scenario: Search - Search for non-existing events
@@ -48,9 +48,9 @@ Then ('I will see the feed empty state', () => {
 // });
 
 When ('I type an event title', () => {
-    cy.get('.css-nbt25o').should('include.text','Jam').should('include.text','title');
-    cy.get('[placeholder="Search by title"]').type('jam').should('have.value','jam');
-    cy.get('.css-nbt25o').should('include.text','Jam').should('not.include.text','title')
+    cy.get('.css-nbt25o').should('include.text','E3 2023').should('include.text','Events name');
+    cy.get('[placeholder="Search by title"]').type('E3 2023').should('have.value','E3 2023');
+    cy.get('.css-nbt25o').should('include.text','E3 2023').should('not.include.text','Events name')
 });
 
 When ('I click on the Cross Icon inside the Input',() =>{
@@ -59,7 +59,7 @@ When ('I click on the Cross Icon inside the Input',() =>{
 
 Then ('Input content will be wiped and it will return all events', () => {
     cy.get('[placeholder="Search by title"]').should('be.empty');
-    cy.get('.css-nbt25o').should('include.text','Jam').and('include.text','title')
+    cy.get('.css-nbt25o').should('include.text','E3 2023').and('include.text','Events name')
 });
 
 // // // // // // // // // // // Scenario: Search - Wipe Input manually
